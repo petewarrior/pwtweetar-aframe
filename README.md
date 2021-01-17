@@ -1,6 +1,8 @@
-# pwtweetar
+# PWTweetAR
 
-Empty project.
+VR tweet viewer built using [Aframe](https://aframe.io). Made for use with the [PWTweetAR Server](https://github.com/petewarrior/pwtweetar-server).
+
+[Live Demo](https://petewarrior.com/bmf)
 
 ## Building and running on localhost
 
