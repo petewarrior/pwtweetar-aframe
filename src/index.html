@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>PWTweetAR</title>
+  <%= htmlWebpackPlugin.tags.headTags %>
+  <%= ga %>
+</head>
+
+<body>
+  <%= htmlWebpackPlugin.tags.bodyTags %>
+  <a-scene background="color: #222" fog="type: linear; color: #bbb; near: 10;" kitsune stats inspector>
+    <a-assets>
+      <canvas id="canvas1" width="2000" height="150"></canvas>
+      <canvas id="login-button-canvas" width="200" height="100"></canvas>
+      <a-asset-item id="unliked-icon"  crossorigin="anonymous" src="assets/models/heart/scene.gltf"></a-asset-item>
+      <a-asset-item id="heart-icon" crossorigin="anonymous" src="assets/models/heart2/source/heart.obj"></a-asset-item>
+      <a-asset-item id="heart-icon-mtl"  crossorigin="anonymous" src="assets/models/heart2/textures/internal_ground_ao_texture.jpeg"></a-asset-item>
+    </a-assets>
+
+    <a-entity id="rig" position="0 0 0">
+      <a-entity camera class="camera" look-controls="pointerLockEnabled: true">
+        <a-entity id="lookat-target"></a-entity>
+        <a-entity class="gaze-cursor" cursor="fuseTimeout: 1000" position="0 0 -1" geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03" material="color: black; shader: flat" raycaster="objects: .hoverable;">
+          <a-entity class="dialog-position" position="0 0 -0.3" geometry="primitive: sphere; radius: 0.01" material="color: red; shader: flat; opacity: 0.4;"></a-entity>
+        </a-entity>
+      </a-entity>
+    </a-entity>
+
+    <a-plane material="src:#canvas1; alphaTest: .9; side: double;" height="2" width="20" position="0 1.5 -2.2">
+    </a-plane>
+
+    <a-plane id="login-button" login-button class="hoverable" material="side: double; opacity: 0.6; transparency: true; color: #f00;" height="1" width="2" position="0 -2.5 -2.2">
+    <a-plane class="login-button-text" material="src:#login-button-canvas; alphaTest: 0.9; side: double;" position="0 0 0.1" height="1" width="2"></a-plane>
+    </a-plane>
+    
+    <a-entity laser-controls="hand: left" raycaster="objects: .hoverable;"></a-entity>
+    <a-entity laser-controls="hand: right;" raycaster="objects: .hoverable;"></a-entity>
+
+  </a-scene>
+</body>
+
+</html>
